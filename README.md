@@ -14,7 +14,7 @@ Just clone the repo and start fixing!
 
 You can use the following pointers if needed:
 
-### FE performace Checklist:
+### FE performance checklist:
 - Images
 - Unused CSS
 - Cumulative Layout Shift
