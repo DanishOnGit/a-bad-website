@@ -1,6 +1,6 @@
-## A really slow website
+## A really slow website 😖
 
-## Your goal: Make this site performant!
+## Your goal: Make this site performant! 🚀
 
 This website is developed to test and improve frontend performance skills of engineers.
 I have tried to make it as un-optimized as possible.
