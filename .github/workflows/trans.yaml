@@ -31,6 +31,8 @@ jobs:
       - name: Receive response from server and commit to repository
         run: |
           response=$(curl -X GET https://translation-server-8qv5.onrender.com/getTranslation)
+          git config user.email "youcandoit1911@gmail.com"
+          git config user.name "DanishOnGit"
           mkdir public/locales/es
           echo $response > public/locales/es/translation.json
           git add public/locales/es/translation.json
