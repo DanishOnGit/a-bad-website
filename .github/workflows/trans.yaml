@@ -23,6 +23,27 @@ jobs:
 
       - name: Send translation file to server and receive response
         run: |
-         fetch('https://translation-server-8qv5.onrender.com/getTranslation',{method:'POST',headers:{'Content-Type':'application/json'},body:{data:JSON.stringify(require('./public/locales/en/translation.json')),reqLanguage:"es"}}).then(response=>response.json()).then(data=>{const fs=require('fs');fs.writeFileSync('./public/locales/es/translation.json',JSON.stringify(data));console.log('Spanish translation received and saved.');git add public/locales/es/translation.json;git commit -m "Update Spanish translation";git push}).catch(error=>{console.error('Error:',error);process.exit(1);});
-
+          fetch('https://translation-server-8qv5.onrender.com/getTranslation',{
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json',
+          },
+          body: {
+          data: JSON.stringify(require('./public/locales/en/translation.json')),
+          reqLanguage:"es"
+          },
+          })
+          .then(response => response.json())
+          .then(data => {
+          const fs = require('fs');
+          fs.writeFileSync('./public/locales/es/translation.json', JSONstringify(data));
+          console.log('Spanish translation received and saved.');
+          git add public/locales/es/translation.json
+          git commit -m "Update Spanish translation"
+          git push
+          })
+          .catch(error => {
+          console.error('Error:', error);
+          process.exit(1);
+          });
 
