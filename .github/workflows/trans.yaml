@@ -23,13 +23,13 @@ jobs:
 
       - name: Send translation file to server and receive response
         run: |
-          fetch('https://translation-server-8qv5.onrender.com/getTranslation',
-          {
-          method: 'POST',
-          headers: {
-          'Content-Type': 'application/json',
-          },
-          body: {
+          fetch('https://translation-server-8qv5.onrender.com/getTranslation'
+          ,{
+          method: 'POST'
+          ,headers: {
+          'Content-Type': 'application/json'
+          ,}
+          ,body: {
           data: JSON.stringify(require('./public/locales/en/translation.json')),
           reqLanguage:"es"
           },
