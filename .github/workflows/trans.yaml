@@ -31,6 +31,7 @@ jobs:
       - name: Receive response from server and commit to repository
         run: |
           response=$(curl -X GET https://translation-server-8qv5.onrender.com/getTranslation)
+          mkdir public/locales/es
           echo $response > public/locales/es/translation.json
           git add public/locales/es/translation.json
           git commit -m "Update Spanish translation"
