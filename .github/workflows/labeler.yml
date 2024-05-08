@@ -1,9 +1,10 @@
 name: Pull Request Labeling
+
 on:
   - pull_request
 
 jobs:
-  labelMe:
+  triage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v3
@@ -18,7 +19,7 @@ jobs:
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
-          sizes > 
+          sizes: >
             {
               "0": "XS",
               "20": "S",
