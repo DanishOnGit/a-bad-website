@@ -23,7 +23,7 @@ jobs:
         id:   myRequest
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://translation-server-8qv5.onrender.com/'
+          url: 'https://translation-server-8qv5.onrender.com/getTranslation'
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
           data: '{"data":{"submit":"Submit"},"reqLanguage":"es"}'
