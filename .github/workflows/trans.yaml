@@ -36,6 +36,8 @@ jobs:
         run: |
             mkdir public/locales/es
             touch public/locales/es/translation.json
-            echo ${{ steps.myRequest.outputs.response }} > public/locales/es/translation.json
+            JSON_RESPONSE=${{ steps.myRequest.outputs.response }}
+            DATA_VALUE=$(echo $JSON_RESPONSE | jq -r '.data')
+            echo ${{ DATA_VALUE }} > public/locales/es/translation.json
       - uses: stefanzweifel/git-auto-commit-action@v5
 
