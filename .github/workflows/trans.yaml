@@ -12,7 +12,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Build app
         run: |
           # Add commands to build your app here
@@ -20,17 +19,16 @@ jobs:
           # npm install
           # npm run build
           # Adjust this command as per your build process
-
-         - name: Post english json
-           id:   myRequest
-           uses: fjogeleit/http-request-action@v1
-           with:
-              url: 'https://translation-server-8qv5.onrender.com/'
-              method: 'POST'
-              customHeaders: '{"Content-Type": "application/json"}'
-              data: '{"data":{"submit":"Submit"},"reqLanguage":"es"}'
-         - name: Show Response
-           run: |
-               echo ${{ steps.myRequest.outputs.response }}
+      - name: Post english json
+        id:   myRequest
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://translation-server-8qv5.onrender.com/'
+          method: 'POST'
+          customHeaders: '{"Content-Type": "application/json"}'
+          data: '{"data":{"submit":"Submit"},"reqLanguage":"es"}'
+      - name: Show Response
+        run: |
+            echo ${{ steps.myRequest.outputs.response }}
 
 
