@@ -5,6 +5,7 @@ import { useLang } from './contexts/LangContext'
 
 export default function App(){
     const {setLang}=useLang()
+    console.log("hii")
     return <div className='App'>
         React i18n
         <select onChange={(e)=>{
