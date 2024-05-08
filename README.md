@@ -31,4 +31,4 @@ You can use the following pointers if needed:
 - Optimize css performance
 - Prefetch,Preload
 - Responsive images
-- Testing page speeds on different network speeds
+- Testing page speeds on different network speeds.
