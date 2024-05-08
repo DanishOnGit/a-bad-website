@@ -21,20 +21,16 @@ jobs:
           # npm run build
           # Adjust this command as per your build process
 
-      - name: Send translation file to server
-        run: |
-          curl -X POST \
-          -H "Content-Type: application/json" \
-          -d "@public/locales/en/translation.json" \
-          https://translation-server-8qv5.onrender.com/
+         - name: Post english json
+           id:   myRequest
+           uses: fjogeleit/http-request-action@v1
+           with:
+              url: 'https://translation-server-8qv5.onrender.com/'
+              method: 'POST'
+              customHeaders: '{"Content-Type": "application/json"}'
+              data: '{"data":{"submit":"Submit"},"reqLanguage":"es"}'
+         - name: Show Response
+           run: |
+               echo ${{ steps.myRequest.outputs.response }}
 
-      - name: Receive response from server and commit to repository
-        run: |
-          response=$(curl -X GET https://translation-server-8qv5.onrender.com/getTranslation)
-          git config user.email "youcandoit1911@gmail.com"
-          git config user.name "DanishOnGit"
-          mkdir public/locales/es
-          echo $response > public/locales/es/translation.json
-          git add public/locales/es/translation.json
-          git commit -m "Update Spanish translation"
-          git push
+
